@@ -1,13 +1,11 @@
-import { useState } from 'react';
-
+import Box from '@mui/material/Box';
+import { Grid } from "@mui/material";
 // import TwitterIcon from '@mui/icons-material/Twitter';
 // import { FaDiscord } from 'react-icons/fa';
 // import Button from '@mui/material/Button';
 import { SlSocialDropbox } from 'react-icons/sl';
-
-import { Grid } from '@mui/material';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { useState } from 'react';
 
 function Header() {
     const [value, setValue] = useState(66325854)
@@ -22,8 +20,7 @@ function Header() {
                 <Grid item sx={{
                     color: 'rgb(110 110 140)',
                     marginRight: '10px',
-                    paddingY: '5px',
-                    marginLeft: '20px',
+                    padding: '5px'
                 }}>
                     <img src='/button.svg' alt='gamepanel icon'/>
                 </Grid>

@@ -1,8 +1,11 @@
+import * as React from 'react';
+
 import { Link } from 'react-router-dom';
 
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
@@ -27,9 +30,23 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 const message = `Truncation should be conditionally applicable on this long line of text
   as this is a much longer line than what the container can support. `;
 function Sidebar() {
+  const [open, setOpen] = React.useState(true);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   return (
-    <div>
-      <Box sx={{ flexGrow: 1, backgroundColor: "#181823" }}>
+
+      <Drawer
+        variant="permanent"
+        anchor="right"
+        open={open}
+      >
+      <Box sx={{ flexGrow: 1, backgroundColor: "#181823"}}>
         <Link href="#" underline="none">
           <Grid
             container
@@ -54,6 +71,7 @@ function Sidebar() {
                 src="images/pin.svg"
                 alt="pin"
                 style={{ marginBottom: "-6px", cursor: 'pointer' }}
+                onClick={handleDrawerClose}
               ></img>
             </Item>
           </Grid>
@@ -103,94 +121,9 @@ function Sidebar() {
               </Grid>
             </Grid>
           </StyledPaper>
-          <StyledPaper
-            sx={{
-              my: 2,
-              mx: "auto",
-              p: 2,
-            }}
-          >
-            <Grid container wrap="nowrap" spacing={2}>
-              <Grid item>
-                <Avatar src="images/avatar.png">W</Avatar>
-              </Grid>
-              <Grid item xs zeroMinWidth style={{textAlign: 'start'}}>
-              <Typography style={{ fontSize: 14, color: '#8A8AA3' }}>Suriki <span style={{float: 'right', color: 'white',fontSize: 12}}>06:51</span></Typography>
-                <Typography noWrap style={{ fontSize: 12 }}>{message}</Typography>
-              </Grid>
-            </Grid>
-          </StyledPaper>
-          <StyledPaper
-            sx={{
-              my: 2,
-              mx: "auto",
-              p: 2,
-            }}
-          >
-            <Grid container wrap="nowrap" spacing={2}>
-              <Grid item>
-                <Avatar src="images/avatar.png">W</Avatar>
-              </Grid>
-              <Grid item xs zeroMinWidth style={{textAlign: 'start'}}>
-                <Typography style={{ fontSize: 14, color: '#8A8AA3' }}>Suriki <span style={{float: 'right', color: 'white',fontSize: 12}}>06:51</span></Typography>
-                <Typography noWrap style={{ fontSize: 12 }}>{message}</Typography>
-              </Grid>
-            </Grid>
-          </StyledPaper>
-          <StyledPaper
-            sx={{
-              my: 2,
-              mx: "auto",
-              p: 2,
-            }}
-          >
-            <Grid container wrap="nowrap" spacing={2}>
-              <Grid item>
-                <Avatar src="images/avatar.png">W</Avatar>
-              </Grid>
-              <Grid item xs zeroMinWidth style={{textAlign: 'start'}}>
-                <Typography style={{ fontSize: 14, color: '#8A8AA3' }}>Suriki <span style={{float: 'right', color: 'white',fontSize: 12}}>06:51</span></Typography>
-                <Typography noWrap style={{ fontSize: 12 }}>{message}</Typography>
-              </Grid>
-            </Grid>
-          </StyledPaper>
-          <StyledPaper
-            sx={{
-              my: 2,
-              mx: "auto",
-              p: 2,
-            }}
-          >
-            <Grid container wrap="nowrap" spacing={2}>
-              <Grid item>
-                <Avatar src="images/avatar.png">W</Avatar>
-              </Grid>
-              <Grid item xs zeroMinWidth style={{textAlign: 'start'}}>
-                <Typography style={{ fontSize: 14, color: '#8A8AA3' }}>Suriki <span style={{float: 'right', color: 'white',fontSize: 12}}>06:51</span></Typography>
-                <Typography noWrap style={{ fontSize: 12 }}>{message}</Typography>
-              </Grid>
-            </Grid>
-          </StyledPaper>
-          <StyledPaper
-            sx={{
-              my: 2,
-              mx: "auto",
-              p: 2,
-            }}
-          >
-            <Grid container wrap="nowrap" spacing={2}>
-              <Grid item>
-                <Avatar src="images/avatar.png">W</Avatar>
-              </Grid>
-              <Grid item xs zeroMinWidth style={{textAlign: 'start'}}>
-                <Typography style={{ fontSize: 14, color: '#8A8AA3' }}>Suriki <span style={{float: 'right', color: 'white',fontSize: 12}}>06:51</span></Typography>
-                <Typography noWrap style={{ fontSize: 12 }}>{message}</Typography>
-              </Grid>
-            </Grid>
-          </StyledPaper>
         </Box>
       </Box>
-    </div>
+      </Drawer>
   );
 }
 
